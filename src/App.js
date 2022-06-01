@@ -1,23 +1,19 @@
-import logo from './logo.svg';
 import './App.css';
+import React from 'react';
+import Playlist from './Playlist';
+import AudioData from './AudioData';
+import StartingScreen from './StartingScreen';
+import data from './songList.json'
 
 function App() {
+  const [load, setLoad] = React.useState(false);
+  const [songIndex, setSongIndex] = React.useState(Math.floor(Math.random() * data.length))
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {load?null:<StartingScreen setLoad={setLoad}/>}
+      <img src='./images/morning.jpg' alt='' className='backgroundImage'/>
+      {load?<Playlist setSongIndex={setSongIndex}/>:null}
+      {load?<AudioData songIndex={songIndex}/>:null}
     </div>
   );
 }

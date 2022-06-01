@@ -1,38 +1,148 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Epilogue&display=swap');
+
+/*
+'Epilogue', sans-serif;
+*/
+
+html{font-size: 100%;}
+
+*{
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  font-family: 'Epilogue', sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.App{
+  height: 100vh;
+  width: 100vw;
+  background-color: black;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.backgroundImage{
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.startingScreen{
+  width: 100%;
+  height: 100%;
+}
+
+.loadingCircle{
+  position: relative;
+  top: 35%;
+  margin: auto;
+  background-color: white;
+  width: 15.618%;
+  height: 30%;
+  border-radius: 50%;
+  opacity: .8;
+}
+
+.playlist{
+  position: absolute;
+  top: 12%;
+  left: 55%;
+  height: 75%;
+  width: 35%;
+  border: 2px solid white;
+}
+
+.arrowContainer{
+  position: absolute;
+  height: 100%;
+  width: 6%;
+  padding: 3%;
+  left: 87%;
+  z-index: 2;
+}
+
+.arrowUp, .arrowDown{
+  position: absolute;
+  border: solid white;
+  border-width: 0 .1rem .1rem 0;
+  display: inline-block;
+  padding: .6rem;
+}
+
+@keyframes arrowAnimation {
+  0% {background-color: white;}
+  50% {background-color: transparent;}
+}
+
+.arrowUp1, .arrowDown1{
+  position: absolute;
+  height: 1rem;
+  width: 1rem;
+  border: solid white .1rem;
+  background-color: white;
+  animation-name: arrowAnimation;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+}
+
+.arrowUp, .arrowUp1{
+  top: 5%;
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+}
+
+.arrowDown, .arrowDown1{
+  top: 85.5%;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+
+.arrowUp1{
+  top: 8%;
+}
+
+.arrowDown1{
+  top: 82.5%;
+}
+
+.songList{
+  position: relative;
+}
+
+.songDetails{
+  position: relative;
+  margin: auto;
+  width: 90%;
+  font-size: 1.5em;
+  margin-top: 8%;
   color: white;
+  text-shadow: 2px 2px 4px black;
 }
 
-.App-link {
-  color: #61dafb;
+.audioData{
+  border: solid white 2px;
+  position: absolute;
+  top: 27.5%;
+  left: 10%;
+  height: 45%;
+  width: 35%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.audioTitle{
+  position: relative;
+  top: 35%;
+  width: 75%;
+  text-align: center;
+  margin: auto;
+  font-size: 2rem;
+  color: white;
+  text-shadow: 2px 2px 4px black;
+}
+
+.audioCPlay{
+  position: relative;
+  color: white;
+  top: 37.5%;
+  text-shadow: 2px 2px 4px black;
+  text-align: center;
 }
