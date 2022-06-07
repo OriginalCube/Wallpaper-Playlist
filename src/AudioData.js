@@ -1,10 +1,9 @@
 import React from 'react'
 import data from './songList.json'
+let audioPlayer = new Audio()
 const AudioData = (props) => {
-  let audioPlayer = new Audio()
   React.useEffect(()=>{
-    audioPlayer.volume = .3;
-    console.log(audioPlayer.currentTime)
+    audioPlayer.volume = .4;
     if(audioPlayer.paused===true && audioPlayer.currentTime > 0){
       audioPlayer.src = './songs/'+ data[props.songIndex]['Name'] +'.mp3';
       audioPlayer.play();
@@ -14,7 +13,6 @@ const AudioData = (props) => {
       audioPlayer.play();
     }
   },[props.songIndex])
-
 
   // const audioPause = () =>{
   //   audioPlayer.pause();

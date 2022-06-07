@@ -16,15 +16,30 @@ html{font-size: 100%;}
 .App{
   height: 100vh;
   width: 100vw;
-  background-color: black;
+  background-color: white;
 }
 
 .backgroundImage{
+  min-height: 100%;
+  min-width: 1024px;
+  width: 100%;
+  height: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+@media screen and (max-width: 1024px) { 
+  img.bg {
+    left: 50%;
+    margin-left: -512px;   
+  }
+}
+
+.canvas{
   width: 100%;
   height: 100%;
-  background-size: cover;
-  background-attachment: fixed;
-  background-position: center;
+  border: 2px solid red;
 }
 
 .startingScreen{
@@ -32,16 +47,57 @@ html{font-size: 100%;}
   height: 100%;
 }
 
-.loadingCircle{
+.startClock{
   position: relative;
-  top: 35%;
+  top: 27.5%;
   margin: auto;
-  background-color: white;
-  width: 15.618%;
-  height: 30%;
-  border-radius: 50%;
-  opacity: .8;
+  width: 60%;
+  height: 45%;
+  border: 2px solid white;
+  box-shadow: 
+    inset 1px 1px 10px white,
+    0px 0px 4px white;
+  z-index: 100;
 }
+
+.startClock:hover{
+  box-shadow: 
+    inset 1px 1px 10px black,
+    0px 0px 4px black
+}
+
+.clockText{
+  color: white;
+  margin: 0;
+  position: absolute;
+  top: 53%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-shadow: 
+    0px 0px 15px white;
+  opacity: .9;
+}
+
+.clockSecond{
+  color: white;
+  position: absolute;
+  z-index: 5;
+  top: 73%;
+  left: 73%;
+  transform: translate(-50%, -50%);
+  text-shadow: 0px 0px 5px white;
+}
+
+.startClock:hover .clockText{
+  text-shadow: 
+    0px 0px 15px black;
+}
+
+.startClock:hover .clockSecond{
+  text-shadow: 
+    0px 0px 5px black;
+}
+
 
 .playlist{
   position: absolute;
@@ -50,6 +106,9 @@ html{font-size: 100%;}
   height: 75%;
   width: 35%;
   border: 2px solid white;
+  box-shadow: 
+    inset 1px 1px 10px white,
+    0px 0px 4px black
 }
 
 .arrowContainer{
@@ -126,12 +185,16 @@ html{font-size: 100%;}
   left: 10%;
   height: 45%;
   width: 35%;
+  box-shadow: 
+    inset 1px 1px 10px white,
+    0px 0px 4px black
 }
 
 .audioTitle{
   position: relative;
   top: 35%;
-  width: 75%;
+  height: 11%;
+  width: 80%;
   text-align: center;
   margin: auto;
   font-size: 2rem;

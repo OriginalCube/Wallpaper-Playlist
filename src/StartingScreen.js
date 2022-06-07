@@ -1,14 +1,15 @@
 import React from 'react'
+import Clock from './Clock';
 
 const StartingScreen = (props) => {
     const onSubmit = () =>{
-        setTimeout(() => {
-            props.setLoad(true);            
-        }, 3000);
+      let _audio = new Audio('./audios/notes.mp3');
+      _audio.play();
+      props.setLoad(true);            
     }
   return (
     <div className='startingScreen'>
-        <div className='loadingCircle' onClick={()=>onSubmit()}></div>
+      <div className='startClock' onClick={onSubmit}><Clock/></div>
     </div>
   )
 }

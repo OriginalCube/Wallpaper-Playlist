@@ -14,7 +14,7 @@ const Playlist = (props) => {
   }
 
   const onSubmit = (e) =>{
-    props.setSongIndex(e)
+    props.setSongIndex(e);
   }
 
   React.useEffect(()=>{
