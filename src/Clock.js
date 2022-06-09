@@ -1,9 +1,9 @@
 import React from 'react'
 
 const Clock = () => {
-    const [hour, setHour] = React.useState('');
-    const [minute, setMinute] = React.useState('');
-    const [second, setSecond] = React.useState('')
+    const [hour, setHour] = React.useState('00');
+    const [minute, setMinute] = React.useState('0');
+    const [second, setSecond] = React.useState('0')
     React.useEffect(()=>{
         setInterval(() => {
             const currentTime = new Date();
@@ -11,7 +11,6 @@ const Clock = () => {
             setMinute(currentTime.getMinutes());
             setSecond(currentTime.getSeconds());
         }, 1000);
-
     },[])
   return (
     <div>

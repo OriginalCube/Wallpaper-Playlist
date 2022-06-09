@@ -32,8 +32,9 @@ function App() {
 
   return (
     <div className="App">
-      {load?null:<StartingScreen setLoad={setLoad}/>}
+      <Canvas/>
       <img src={'./images/' + activeWallpaper + '.png'} alt='' className='backgroundImage'/>
+      {load?null:<StartingScreen setLoad={setLoad}/>}
       {load?<Playlist setSongIndex={setSongIndex}/>:null}
       {load?<AudioData songIndex={songIndex}/>:null}
     </div>
