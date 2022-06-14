@@ -3,13 +3,25 @@
         "Name" : "Encore"
     },
     {
+        "Name" : "Love Letter"
+    },
+    {
         "Name" : "Romance"
+    },
+    {
+        "Name" : "Halzion"
     },
     {
         "Name" : "Gunjou"
     },
     {
+        "Name" : "RGB"
+    },
+    {
         "Name" : "Monster"
+    },
+    {
+        "Name" : "Mou Sukoshi Dake"
     },
     {
         "Name" : "Tabun"
@@ -21,6 +33,10 @@
         "Name" : "Tracing that dreams"    
     },
     {
+        "Name" : "Tsubame"    
+    },
+    {
         "Name" : "Comet"
     }
+    
 ]

@@ -46,6 +46,12 @@ canvas{
   height: 100%;
 }
 
+.backgroundFilter{
+  width: 100%;
+  height: 100%;
+  background-color: black;
+}
+
 .startClock{
   position: relative;
   top: 27.5%;

@@ -4,7 +4,9 @@ const Clock = () => {
     const [hour, setHour] = React.useState('00');
     const [minute, setMinute] = React.useState('0');
     const [second, setSecond] = React.useState('0')
+    const [textSize, setTextSize] = React.useState('');
     React.useEffect(()=>{
+      setTextSize((window.innerHeight/1980));
         setInterval(() => {
             const currentTime = new Date();
             setHour(currentTime.getHours());
@@ -12,10 +14,11 @@ const Clock = () => {
             setSecond(currentTime.getSeconds());
         }, 1000);
     },[])
+    
   return (
     <div>
-        <p className='clockText' style={{fontSize:'12rem'}}>{hour + ':' }{ minute>9? minute: '0' + minute}</p>
-        <p className='clockSecond' style={{fontSize:'3rem'}}>{second>9? second : '0' + second}</p>
+        <p className='clockText' style={{fontSize:(textSize*20).toString()+'rem'}}>{hour + ':' }{ minute>9? minute: '0' + minute}</p>
+        <p className='clockSecond' style={{fontSize:(textSize*8).toString()+'rem'}}>{second>9? second : '0' + second}</p>
     </div>
   )
 }

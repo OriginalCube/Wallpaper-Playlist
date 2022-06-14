@@ -3,8 +3,6 @@ import Clock from './Clock';
 
 const StartingScreen = (props) => {
     const onSubmit = () =>{
-      let _audio = new Audio('./audios/notes.mp3');
-      _audio.play();
       props.setLoad(true);            
     }
   return (
