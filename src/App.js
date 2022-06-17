@@ -5,12 +5,15 @@ import AudioData from './AudioData';
 import StartingScreen from './StartingScreen';
 import data from './songList.json'
 import Canvas from './Canvas';
+import SettingBar from './SettingBar';
+import Clock from './Clock';
 
 function App() {
   const [load, setLoad] = React.useState(false);
   const [songIndex, setSongIndex] = React.useState(Math.floor(Math.random() * data.length));
   const [activeWallpaper, setActiveW] = React.useState('');
   const [animationMode, setAnimationMode] = React.useState(1);
+  const [filterOpacity, setFilterOpacity] = React.useState('');
   let wallpaper = ['morning', 'morning_1', 'morning_2', 'afternoon', 'afternoon_1', 'evening', 'evening_1'];
 
   const wallpaperSet = () =>{// Sets the wallpaper by the current time
@@ -29,16 +32,18 @@ function App() {
 
   React.useEffect(()=>{
     wallpaperSet();
+    localStorage.getItem('filterOpacity')!==null?setFilterOpacity(localStorage.getItem('filterOpacity')) : localStorage.setItem('filterOpacity', '.1'); setFilterOpacity('.1')//Dont ask -_-
   },[])
 
   return (
     <div className="App">
+      <SettingBar />
+      <img src={'./assets/images/' + activeWallpaper + '.png'} alt='' className='backgroundImage'/>
+      <div className='backgroundFilter' style={{opacity: filterOpacity}}></div> 
       <Canvas animationMode={animationMode}/>
-      <img src={'./images/' + activeWallpaper + '.png'} alt='' className='backgroundImage'/>
       {load?null:<StartingScreen setLoad={setLoad}/>}
       {load?<Playlist setSongIndex={setSongIndex}/>:null}
-      {load?<AudioData songIndex={songIndex}/>:null}
-      <div className='backgroundFilter'></div>      
+      {load?<AudioData setSongIndex={setSongIndex} songIndex={songIndex}/>:null}
     </div>
   );
 }

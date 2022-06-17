@@ -38,7 +38,6 @@ html{font-size: 100%;}
 
 canvas{
   position: absolute;
-  z-index: 2;
 }
 
 .startingScreen{
@@ -47,9 +46,99 @@ canvas{
 }
 
 .backgroundFilter{
+  position: absolute;
   width: 100%;
   height: 100%;
   background-color: black;
+}
+
+.smallClock{
+  position: absolute;
+  height: 10%;
+  top: 1%;
+  width: 15%;
+  z-index: 20;
+}
+
+.settingActive{
+  position: absolute;
+  top: 46%;
+  height: 8%;
+  width: 4%;
+  margin-right: .5%;
+  right: 0%;  
+  border: 2px solid white;
+  z-index: 10;
+}
+
+.settingBarWrapper{
+  position: absolute;
+  top: 30%;
+  height: 40%;
+  width: 4%;
+  margin-right: .5%;
+  right: 0%;  
+  border: 2px solid white;
+  z-index: 10;
+  text-align: center;
+}
+
+.settingIcon{
+  position: absolute;
+  left: 0; 
+  right: 0; 
+  margin-left: auto; 
+  margin-right: auto; 
+  height: 15%;  
+  width: 75%; 
+}
+
+.mainSettings{
+  position: absolute;
+  width: 60%;
+  height: 80%;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  background-color: #202225;
+  border-radius: 1%;
+  opacity: .9;
+  z-index: 20;
+}
+
+.settingCard{
+  position: relative;
+  height: 90%;
+  width: 90%;
+  top: 5%;
+  left: 5%;  
+}
+
+.filterCard{
+  position: relative;
+  top: 5%;
+  width: 90%;
+  height: 30%;
+  left: 5%;
+  text-align: center;
+  background-color: #36393F;
+  border-radius: 2%;
+  box-shadow: 0px 0px 14px black
+}
+
+.filterText{
+  position: relative;
+  font-size: 1.5rem;
+  color: white;
+  top: 25%;
+}
+
+.filterCard input{
+  position: relative;
+  top: 50%;
+  width: 90%;
 }
 
 .startClock{
@@ -62,7 +151,6 @@ canvas{
   box-shadow: 
     inset 1px 1px 10px white,
     0px 0px 4px white;
-  z-index: 10;
 }
 
 .startClock:hover{
@@ -86,7 +174,6 @@ canvas{
 .clockSecond{
   color: white;
   position: absolute;
-  z-index: 5;
   top: 73%;
   left: 73%;
   transform: translate(-50%, -50%);
@@ -114,7 +201,6 @@ canvas{
   box-shadow: 
     inset 1px 1px 10px white,
     0px 0px 4px black;
-  z-index: 10;
 }
 
 .arrowContainer{
@@ -152,14 +238,15 @@ canvas{
 
 .arrowUp, .arrowUp1{
   top: 5%;
-  transform: rotate(-135deg);
   -webkit-transform: rotate(-135deg);
+  transform: rotate(-135deg);
 }
 
 .arrowDown, .arrowDown1{
   top: 85.5%;
-  transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+
 }
 
 .arrowUp1{
@@ -183,7 +270,6 @@ canvas{
   margin-top: 4%;
   padding: 2% 0% 2% 0%;
   padding-left: 4%;
-  color: white;
   text-shadow: 2px 2px 4px black;
 }
 
@@ -201,14 +287,41 @@ canvas{
   box-shadow: 
     inset 1px 1px 10px white,
     0px 0px 4px black;
-  z-index: 10;
+}
+
+.audioProgressWrapper{
+  position: relative;
+  width: 100%;
+  margin-bottom: 5%;
+}
+
+.audioProgress{
+  width: 75%;
+}
+
+.audioControls{
+  position: relative;
+  height: 40%;
+  width: 100%;
+  top: 30%;
+  text-align: center;
+}
+
+.audioIcon{
+  position: relative;
+  width: 6vh;
+  height: 6vh;
+  margin-left: 6%;
+}
+
+.audioDataText{
+  position: relative;
+  height: 25%;
+  top: 30%;
 }
 
 .audioTitle{
   position: relative;
-  top: 35%;
-  height: 11%;
-  width: 80%;
   text-align: center;
   margin: auto;
   font-size: 2rem;
@@ -219,7 +332,8 @@ canvas{
 .audioCPlay{
   position: relative;
   color: white;
-  top: 37.5%;
   text-shadow: 2px 2px 4px black;
   text-align: center;
+  top: 15%;
+  height: 40%;
 }

@@ -188,7 +188,7 @@ const Canvas = (props) => {
   }else if(props.animationMode === 1){
     AnimateConfetti();
   }
-}, [canvasRef])
+}, [canvasRef, props.animationMode])
 
   return <canvas ref={canvasRef} />
 }

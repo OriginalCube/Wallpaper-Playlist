@@ -1,9 +1,9 @@
 import React from 'react';
-import data from './songList.json'
+import data from './songList.json';
 
 const Playlist = (props) => {
-  
   const [scroll, setScroll] = React.useState(0);
+  let textColors = ["#A8E6CF", "#DCEDC1", "#FFD3B6", "#FFAAA5", "#FF8B94"];//Text Color
 
   const arrowUp = () =>{
     if(scroll<0){(setScroll((scroll+100)))};
@@ -36,10 +36,15 @@ const Playlist = (props) => {
       <div className='songList' style={{top: scroll}}>
         {
           data.map((song, index)=>(
-            <p className='songDetails' key={index} onClick={()=>onSubmit(index)}>{song.Name}</p>
+            <p className='songDetails' style={{color: textColors[Math.floor(Math.random()*textColors.length)]}} 
+            key={index} onClick={()=>onSubmit(index)}>{song.Name}</p>
           ))
         }
       </div>
+      <button
+        type='button' className='audioPlay'
+      />
+
     </div>
   )
 }

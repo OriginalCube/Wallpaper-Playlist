@@ -7,7 +7,7 @@ const StartingScreen = (props) => {
     }
   return (
     <div className='startingScreen'>
-      <div className='startClock' onClick={onSubmit}><Clock/></div>
+      <div className='startClock' onClick={onSubmit}><Clock Mode="start"/></div>
     </div>
   )
 }
