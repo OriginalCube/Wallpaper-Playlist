@@ -5,11 +5,11 @@ const AudioData = (props) => {
   const [trackIndex, setTrackIndex] = React.useState(props.songIndex);
   const [isPlaying, setIsPlaying] = React.useState(false);
   const [trackProgress, setTrackProgress] = React.useState(0);
-  const [volume, setVolume] = React.useState(.4);
+  const [volume, setVolume] = React.useState(props.songVolume);
   //ref
   const intervalRef = React.useRef();
   const audioRef = React.useRef(new Audio());
-  const isReady = React.useRef(false);
+  const isReady = React.useRef(true);
   const { duration } = audioRef.current;
 
   const skipButton = () => {
@@ -37,8 +37,9 @@ const AudioData = (props) => {
   }
 
   const addVolume = () =>{
-    if(volume+.1<.9){
-      volume<0?setVolume(volume+.3):setVolume(volume+.1);
+    console.log(volume)
+    if(volume>=0 && volume+.1<=1){
+      setVolume(volume+.1);
       audioRef.current.volume = volume;
     }
   }
@@ -81,7 +82,10 @@ const AudioData = (props) => {
 
   React.useEffect(() => {
     if (isPlaying) {
+      audioRef.current.pause();
       startTimer();
+    }else{
+      audioRef.current.play();
     }
   }, [isPlaying]);
 
@@ -100,6 +104,11 @@ const AudioData = (props) => {
     }    
     setIsPlaying(audioRef.isPlaying);
   },[props.songIndex])
+
+  React.useEffect(()=>{
+    setVolume(props.songVolume);
+    audioRef.current.volume = volume;
+  },[props.songVolume])
 
   React.useEffect(() => {
     // Pause and clean up on unmount

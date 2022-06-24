@@ -11,7 +11,7 @@ const Canvas = (props) => {
     const canvas = canvasRef.current;
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
-    const ctx = canvas.getContext('2d');
+    let ctx = canvas.getContext('2d');
 
 
     //First animation CD circle 
@@ -103,6 +103,7 @@ const Canvas = (props) => {
       }
       draw (ctx){
         ctx.beginPath();
+        //ctx.arc(this.xPos, this.yPos, this.radius/2, 0, Math.PI * 2 ,  true)
         ctx.rect(this.xPos, this.yPos, this.radius, this.radius);
         ctx.fillStyle = this.color;
         ctx.fill();
@@ -179,7 +180,50 @@ const Canvas = (props) => {
       }
     }
     updateConfetti();
+  }
 
+  /*Keyboard Sounds
+   idea Canvas here audio outside Effect Going Up with th*/
+  function keyboardAnimation(e){
+    let keyInput = Math.floor(e.clientX/(window.innerWidth/8));
+    class Key{
+      constructor (xPos, yPos, width, height, speed, color, opacity){
+        this.xPos = xPos;
+        this.yPos = yPos;
+        this.width = width;
+        this.height = height;
+        this.speed = speed;
+        this.color = color;
+        this.opacity = opacity;
+      }
+    
+      draw (ctx){
+        ctx.beginPath();
+        ctx.rect(this.xPos, this.yPos, this.width, this.height);
+        ctx.fillStyle = this.color;
+        ctx.fill();
+        ctx.globalAlpha = this.opacity;
+        ctx.closePath();
+      }
+
+      update(){
+        this.draw(ctx);
+        this.yPos -= this.speed/2;
+        this.height += this.speed;
+        this.opacity -= .01;
+      }
+    }    
+      //Default Data
+      let temp_size = (window.innerWidth/8);//Sets width
+      let keyColor = ['#A7D7CE', '#F2E4A1', '#F4D5A4', '#EECBA9', '#F0BBB6', '#D6BFE0', '#A0CECE', '#E6978E'];
+      let key = new Key(keyInput*temp_size, e.clientY-75, temp_size, 75, 20, keyColor[keyInput], .8);
+      key.draw(ctx);
+    let updateKey = function(){
+      window.requestAnimationFrame(updateKey);
+      ctx.clearRect(0, 0, window.innerWidth, window.innerHeight)
+      key.update();
+    }
+      updateKey();
   }
 
   //If for animation Loader
@@ -187,9 +231,15 @@ const Canvas = (props) => {
     AnimateCircle();
   }else if(props.animationMode === 1){
     AnimateConfetti();
+  }else if(props.animationMode === 2){
+    document.addEventListener('click', keyboardAnimation);
   }
-}, [canvasRef, props.animationMode])
+  
+  //return useEffect
+  return () => {document.removeEventListener('click', keyboardAnimation);}
+  }, [props.animationMode]);
 
+  
   return <canvas ref={canvasRef} />
 }
 

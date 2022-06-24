@@ -4,13 +4,14 @@
 /node_modules
 /.pnp
 .pnp.js
-/public/songs
+.mp3
+.png
 # testing
 /coverage
 
 # production
 /build
-
+/public/assets
 # misc
 .DS_Store
 .env.local

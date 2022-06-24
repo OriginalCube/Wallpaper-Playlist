@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Epilogue&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap');
 /*
 'Epilogue', sans-serif;
+'Oswald', sans-serif;
 */
 
 html{font-size: 100%;}
@@ -17,6 +18,15 @@ html{font-size: 100%;}
   height: 100vh;
   width: 100vw;
   background-color: black;
+}
+
+.test{
+  position: absolute;
+  height: 3.5%;
+  width: 10%;
+  background-color: black;
+  z-index: 20;
+  color: white;
 }
 
 .backgroundImage{
@@ -63,8 +73,8 @@ canvas{
 .settingActive{
   position: absolute;
   top: 46%;
-  height: 8%;
-  width: 4%;
+  height: 4vw;
+  width: 4vw;
   margin-right: .5%;
   right: 0%;  
   border: 2px solid white;
@@ -89,8 +99,8 @@ canvas{
   right: 0; 
   margin-left: auto; 
   margin-right: auto; 
-  height: 15%;  
-  width: 75%; 
+  width: 2.5vw;
+  height: 2.5vw;
 }
 
 .mainSettings{
@@ -102,43 +112,92 @@ canvas{
   top: 0;
   bottom: 0;
   margin: auto;
-  background-color: #202225;
-  border-radius: 1%;
-  opacity: .9;
   z-index: 20;
+}
+
+.mainSettings p{
+  position: relative;
+  color: white;
+  font-size: 2rem;
+  text-shadow: 0px 0px 8px black;
+  top: 5%;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  font-family: 'Lato', sans-serif;
 }
 
 .settingCard{
   position: relative;
+  font-family: 'Lato', sans-serif;
   height: 90%;
-  width: 90%;
-  top: 5%;
-  left: 5%;  
+  width: 98%;
+  top: 10%;
+  left: 1%;  
 }
 
 .filterCard{
   position: relative;
-  top: 5%;
-  width: 90%;
-  height: 30%;
-  left: 5%;
-  text-align: center;
-  background-color: #36393F;
+  background-color: white;
+  width: 50%;
+  height: 15%;
+  font-size: 1rem;
   border-radius: 2%;
-  box-shadow: 0px 0px 14px black
+  box-shadow: 0px 0px 16px black;
+  opacity: .9;
 }
 
-.filterText{
-  position: relative;
-  font-size: 1.5rem;
-  color: white;
-  top: 25%;
+.filterCardWrapper{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  width: 90%;
 }
 
 .filterCard input{
+  position: absolute;
+  top: 15%;
+  right: 5%;
+}
+
+.canvasCard{
+  position: absolute;
+  top: 0%;
+  right: 0%;
+  width: 40%;
+  height: 65%;
+  background-color: white;
+  border-radius: 2%;
+  box-shadow: 0px 0px 16px black;
+  opacity: .9;
+}
+
+.animOptionWrapper{
+  position: absolute;
+  width: 80%;
+  height: 10%;
+  top: 75%;
+  left: 10%;
+  border-radius: 2%;
+  text-align: center;
+}
+
+.animOption{
+  width: 31%;
+  height: 90%;
+  display: inline-flex;
+  border: 2px solid black;
+}
+
+.saveClose{
   position: relative;
-  top: 50%;
-  width: 90%;
+  height: 10%;
+  top: 25%;
+  font-size: 1.5rem;
+  font-family: 'Lato', sans-serif;
+  opacity: .9;
 }
 
 .startClock{
@@ -168,7 +227,6 @@ canvas{
   transform: translate(-50%, -50%);
   text-shadow: 
     0px 0px 15px white;
-  opacity: .9;
 }
 
 .clockSecond{

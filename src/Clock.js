@@ -22,10 +22,6 @@ const Clock = (props) => {
       }
     },[props.Mode])
 
-    React.useEffect(()=>{
-      console.log(clockText);
-    },[clockText])
-
   return (
     <div>
         <p className='clockText' style={{fontSize:clockText.toString()+'rem'}}>{hour + ':' }{ minute>9? minute: '0' + minute}</p>
